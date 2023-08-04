@@ -14,11 +14,14 @@ $(function () {
 	//
 	// TODO: Add code to display the current date in the header of the page.
 
-	$('#schedule').on('click', saveHandler);
-
+	let date = dayjs().format('MMM D, YYYY');
+	let time = dayjs().format('hh:mm');
+	$('#currentDay').text(date);
+	$('#currentTime').text(time);
+  
 	function saveHandler(event) {
-		console.log(this);
-
+	console.log(this);
+	
 		console.log(event.target);
 		let clickedEl = $(event.target);
 
@@ -33,9 +36,10 @@ $(function () {
 
 		localStorage.setItem(timeBlock, blockInput);
 		console.log('ls ' + localStorage.getItem(timeBlock));
-
+	
 	}
 	
+  $('#schedule').on('click', saveHandler);
 });
 
 
